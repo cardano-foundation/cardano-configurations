@@ -11,7 +11,7 @@ jobs:
     steps:
 
     - name: Checkout repository
-      uses: actions/checkout@v2.3.3
+      uses: actions/checkout@v4
 
     - name: Download from The Cardano Book (mainnet)
       shell: bash
