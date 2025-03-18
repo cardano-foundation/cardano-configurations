@@ -10,5 +10,5 @@ else
     git config --global user.name "Automated Bot"
     git add .
     git commit -m "Upload configuration from: $1"
-    git push --set-upstream origin "master"
+    git push --set-upstream origin "main"
 fi
