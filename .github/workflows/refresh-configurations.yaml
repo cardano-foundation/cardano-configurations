@@ -16,7 +16,7 @@ jobs:
     - uses: actions/cache@v4
       with:
         path: etags
-        key: etags-${{ hashFiles('etags/**/*.etag') }}
+        key: etags-${{ hashFiles('network/**/*.json') }}
         restore-keys: etags
 
     - name: Download from The Cardano Book (mainnet)
