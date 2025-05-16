@@ -43,6 +43,7 @@ function get_if_new() {
 }
 
 get_if_new "topology.json" network/$CARDANO_NETWORK/cardano-node/topology.json
+get_if_new "checkpoints.json" network/$CARDANO_NETWORK/cardano-node/checkpoints.json
 get_if_new "config.json" network/$CARDANO_NETWORK/cardano-node/config.json
 get_if_new "db-sync-config.json" network/$CARDANO_NETWORK/cardano-db-sync/config.json
 get_if_new "submit-api-config.json" network/$CARDANO_NETWORK/cardano-submit-api/config.json
