@@ -35,6 +35,9 @@ function get_if_new() {
       cat $TMP | sed -E '1,/^\r?$/d' > $OUT
     fi
 
+  elif [[ $CODE == "404" ]]; then
+    echo "NOT FOUND: $FILE; ignoring"
+
   else
     echo "Failed to fetch $FILE."
     cat $TMP
