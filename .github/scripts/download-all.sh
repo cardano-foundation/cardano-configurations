@@ -5,7 +5,7 @@
 CARDANO_CONFIG_URL=$1
 CARDANO_NETWORK=$2
 
-CARDANO_CONFIG_OVERRIDE='.ByronGenesisFile = "../genesis/byron.json" | .ShelleyGenesisFile = "../genesis/shelley.json" | .AlonzoGenesisFile = "../genesis/alonzo.json" | .ConwayGenesisFile = "../genesis/conway.json"'
+CARDANO_CONFIG_OVERRIDE='.ByronGenesisFile = "../genesis/byron.json" | .ShelleyGenesisFile = "../genesis/shelley.json" | .AlonzoGenesisFile = "../genesis/alonzo.json" | .ConwayGenesisFile = "../genesis/conway.json" | .ConwayGenesisFile = "../genesis/conway.json"'
 DB_SYNC_CONFIG_OVERRIDE='.NodeConfigFile = "../cardano-node/config.json"'
 
 function get_if_new() {
@@ -56,3 +56,4 @@ get_if_new "byron-genesis.json" network/$CARDANO_NETWORK/genesis/byron.json
 get_if_new "shelley-genesis.json" network/$CARDANO_NETWORK/genesis/shelley.json
 get_if_new "alonzo-genesis.json" network/$CARDANO_NETWORK/genesis/alonzo.json
 get_if_new "conway-genesis.json" network/$CARDANO_NETWORK/genesis/conway.json
+get_if_new "dijkstra-genesis.json" network/$CARDANO_NETWORK/genesis/dijkstra.json
