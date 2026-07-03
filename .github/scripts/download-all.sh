@@ -4,6 +4,7 @@
 
 CARDANO_CONFIG_URL=$1
 CARDANO_NETWORK=$2
+STORED_AS=${3:-$CARDANO_NETWORK}
 
 CARDANO_CONFIG_OVERRIDE='.ByronGenesisFile = "../genesis/byron.json" | .ShelleyGenesisFile = "../genesis/shelley.json" | .AlonzoGenesisFile = "../genesis/alonzo.json" | .ConwayGenesisFile = "../genesis/conway.json" | .ConwayGenesisFile = "../genesis/conway.json"'
 DB_SYNC_CONFIG_OVERRIDE='.NodeConfigFile = "../cardano-node/config.json"'
@@ -12,7 +13,7 @@ function get_if_new() {
   FILE=$1
   OUT=$2
 
-  ETAG_FILE=etags/$CARDANO_NETWORK/${FILE%.*}.etag
+  ETAG_FILE=etags/$STORED_AS/${FILE%.*}.etag
   TMP=$(mktemp)
   ETAG=$([[ -f $ETAG_FILE ]] && cat $ETAG_FILE)
 
@@ -45,15 +46,15 @@ function get_if_new() {
   fi
 }
 
-get_if_new "topology.json" network/$CARDANO_NETWORK/cardano-node/topology.json
-get_if_new "checkpoints.json" network/$CARDANO_NETWORK/cardano-node/checkpoints.json
-get_if_new "peer-snapshot.json" network/$CARDANO_NETWORK/cardano-node/peer-snapshot.json
-get_if_new "config.json" network/$CARDANO_NETWORK/cardano-node/config.json
-get_if_new "db-sync-config.json" network/$CARDANO_NETWORK/cardano-db-sync/config.json
-get_if_new "submit-api-config.json" network/$CARDANO_NETWORK/cardano-submit-api/config.json
+get_if_new "topology.json" network/$STORED_AS/cardano-node/topology.json
+get_if_new "checkpoints.json" network/$STORED_AS/cardano-node/checkpoints.json
+get_if_new "peer-snapshot.json" network/$STORED_AS/cardano-node/peer-snapshot.json
+get_if_new "config.json" network/$STORED_AS/cardano-node/config.json
+get_if_new "db-sync-config.json" network/$STORED_AS/cardano-db-sync/config.json
+get_if_new "submit-api-config.json" network/$STORED_AS/cardano-submit-api/config.json
 
-get_if_new "byron-genesis.json" network/$CARDANO_NETWORK/genesis/byron.json
-get_if_new "shelley-genesis.json" network/$CARDANO_NETWORK/genesis/shelley.json
-get_if_new "alonzo-genesis.json" network/$CARDANO_NETWORK/genesis/alonzo.json
-get_if_new "conway-genesis.json" network/$CARDANO_NETWORK/genesis/conway.json
-get_if_new "dijkstra-genesis.json" network/$CARDANO_NETWORK/genesis/dijkstra.json
+get_if_new "byron-genesis.json" network/$STORED_AS/genesis/byron.json
+get_if_new "shelley-genesis.json" network/$STORED_AS/genesis/shelley.json
+get_if_new "alonzo-genesis.json" network/$STORED_AS/genesis/alonzo.json
+get_if_new "conway-genesis.json" network/$STORED_AS/genesis/conway.json
+get_if_new "dijkstra-genesis.json" network/$STORED_AS/genesis/dijkstra.json

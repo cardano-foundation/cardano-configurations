@@ -46,10 +46,11 @@ jobs:
     - name: Download from The Cardano Book (musashi)
       shell: bash
       run: |
-        .github/scripts/download-all.sh $CARDANO_CONFIG_URL $CARDANO_NETWORK
+        .github/scripts/download-all.sh $CARDANO_CONFIG_URL $CARDANO_NETWORK $STORED_AS
       env:
         CARDANO_CONFIG_URL: https://book.play.dev.cardano.org/environments-pre
         CARDANO_NETWORK: leios
+        STORED_AS: musashi
 
     - name: Push new configurations
       shell: bash
