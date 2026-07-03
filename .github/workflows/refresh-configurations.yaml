@@ -48,8 +48,8 @@ jobs:
       run: |
         .github/scripts/download-all.sh $CARDANO_CONFIG_URL $CARDANO_NETWORK
       env:
-        CARDANO_CONFIG_URL: https://book.play.dev.cardano.org/environments
-        CARDANO_NETWORK: musashi
+        CARDANO_CONFIG_URL: https://book.play.dev.cardano.org/environments-pre
+        CARDANO_NETWORK: leios
 
     - name: Push new configurations
       shell: bash
